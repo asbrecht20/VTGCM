@@ -1,8 +1,4 @@
 
-02/06/2017 asb:
-This folder contains the files needed to create the "moving" lower boundary.
-
-
 11/12/12 btf:
 The *.txt files are lower boundary conditions for t,u,v,z from the Oxford
 Venus GCM (Chris Lee at Cal Tech). The IDL procedure mknc_lbc reads the
