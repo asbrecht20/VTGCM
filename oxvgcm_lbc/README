@@ -1,0 +1,23 @@
+
+02/06/2017 asb:
+This folder contains the files needed to create the "moving" lower boundary.
+
+
+11/12/12 btf:
+The *.txt files are lower boundary conditions for t,u,v,z from the Oxford
+Venus GCM (Chris Lee at Cal Tech). The IDL procedure mknc_lbc reads the
+ascii data for each field and creates a netcdf file for all 4 fields,
+which can be imported to the vtgcm.
+
+11/20/12 btf:
+Received 4 new ascii files from Steve via Amanda with lbc for t,u,v,z at 
+10 zp levels -16 to -11.5 by 0.5. Removed pipes "|" and commas "," from 
+the ascii files to make them easier to read with IDL. Used the following 
+vi commands for this purpose:
+
+:1,$s/|//g         # globally replace "|" with null
+:1,$s/,/ /g        # globally replace "," with a single space
+
+Modified mknc_lbc.pro to create the netcdf file oxvgcm_lbc.nc with added 
+lev dimension and coordinate for the 10 levels. Now the vtgcm lbc can
+be nudged at each level, rather than only from the lower boundary.
